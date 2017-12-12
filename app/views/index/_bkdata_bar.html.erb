@@ -1,0 +1,97 @@
+<script>
+
+data1= [{
+    y: '2006',
+    a: 30,
+    b: 40
+}, {
+    y: '2007',
+    a: 20,
+    b: 30
+}, {
+    y: '2008',
+    a: 50,
+    b: 40
+}, {
+    y: '2009',
+    a: 75,
+    b: 65
+}];
+
+data2= [{
+    y: '2008',
+    a: 50,
+    b: 40
+}, {
+    y: '2009',
+    a: 75,
+    b: 65
+}];
+
+
+data2= [{
+    y: '2008',
+    a: 950,
+    b: 40
+}, {
+    y: '2009',
+    a: 75,
+    b: 965
+}];
+
+data3= [{
+    y: '2022',
+    a: 7000,
+    b: 40
+}, {
+    y: '2023',
+    a: 75,
+    b: 9999
+}];
+
+
+$(function() {
+  $('#bar1').click(function() { bar.setData(data1);});
+  $('#bar2').click(function() { bar.setData(data2);});
+  $('#bar3').click(function() { bar.setData(data3);});
+
+  var bar = Morris.Bar({
+        element: 'morris-bar-chart',
+        data: [{
+            y: '2006',
+            a: 100,
+            b: 90
+        }, {
+            y: '2007',
+            a: 75,
+            b: 65
+        }, {
+            y: '2008',
+            a: 50,
+            b: 40
+        }, {
+            y: '2009',
+            a: 75,
+            b: 65
+        }, {
+            y: '2010',
+            a: 50,
+            b: 40
+        }, {
+            y: '2011',
+            a: 75,
+            b: 65
+        }, {
+            y: '2012',
+            a: 100,
+            b: 90
+        }],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Series A', 'Series B'],
+        hideHover: 'auto',
+        resize: true
+    });
+
+});
+</script>
