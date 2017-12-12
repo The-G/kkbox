@@ -25,4 +25,15 @@ class AdminController < ApplicationController
     p count
     render :json => count
   end
+
+  def transaction_date
+    transaction_dates=Transaction.all
+    transaction_dates=transaction_dates.group('transaction_date').count
+    count=[]
+    transaction_dates.each do |k, v|
+	     count.push({"date"=> k, "number"=>v, "number2"=>v+100})
+    end
+    p count
+    render :json => count
+  end
 end
