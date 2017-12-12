@@ -1,5 +1,45 @@
 <script>
 
+
+  var bar = Morris.Bar({
+        element: 'morris-bar-chart',
+        data: [{
+            y: '2006',
+            a: 100,
+            b: 90
+        }, {
+            y: '2007',
+            a: 75,
+            b: 65
+        }, {
+            y: '2008',
+            a: 50,
+            b: 40
+        }, {
+            y: '2009',
+            a: 75,
+            b: 65
+        }, {
+            y: '2010',
+            a: 50,
+            b: 40
+        }, {
+            y: '2011',
+            a: 75,
+            b: 65
+        }, {
+            y: '2012',
+            a: 100,
+            b: 90
+        }],
+        xkey: 'y',
+        ykeys: ['a', 'b'],
+        labels: ['Series A', 'Series B'],
+        hideHover: 'auto',
+        resize: true
+    });
+
+
 data1= [{
     y: '2006',
     a: 30,
@@ -49,49 +89,45 @@ data3= [{
     b: 9999
 }];
 
+function ajax(method){
+  console.log("ajax called");
+  $.ajax({
+        url : "/admin/member_" + method,
+        type : "post",
+        success : function(data) {
+          console.log(data);
+          bar.setData(data);
+        }
+  });
+}
+
+
 
 $(function() {
-  $('#bar1').click(function() { bar.setData(data1);});
-  $('#bar2').click(function() { bar.setData(data2);});
+
+  $('#bar1').click(function() {
+    console.log("haha");
+    ajax("city");
+
+  });
+  $('#bar2').click(function() {
+    $.ajax({
+          url : "/admin/member_bd",
+          type : "post",
+          success : function(data) {
+            console.log(data);
+            bar.setData(data);
+          }
+      });
+  });
   $('#bar3').click(function() { bar.setData(data3);});
 
-  var bar = Morris.Bar({
-        element: 'morris-bar-chart',
-        data: [{
-            y: '2006',
-            a: 100,
-            b: 90
-        }, {
-            y: '2007',
-            a: 75,
-            b: 65
-        }, {
-            y: '2008',
-            a: 50,
-            b: 40
-        }, {
-            y: '2009',
-            a: 75,
-            b: 65
-        }, {
-            y: '2010',
-            a: 50,
-            b: 40
-        }, {
-            y: '2011',
-            a: 75,
-            b: 65
-        }, {
-            y: '2012',
-            a: 100,
-            b: 90
-        }],
-        xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
-        hideHover: 'auto',
-        resize: true
-    });
 
 });
+
+
+
+
+
+
 </script>

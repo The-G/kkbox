@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'admin/index'
   root 'admin#index'
+  post 'admin/member_city' => 'admin#member_city'
+  post 'admin/member_bd' => 'admin#member_bd'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

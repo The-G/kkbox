@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  msno: MyString
+  city: 1
+  bd: 1
+  gender: MyString
+  registered_via: 1
+  registration_init_time: 2017-12-12
+
+two:
+  msno: MyString
+  city: 1
+  bd: 1
+  gender: MyString
+  registered_via: 1
+  registration_init_time: 2017-12-12
