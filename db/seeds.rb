@@ -17,7 +17,7 @@
   )
 end
 
-10000.times do |row|
+100.times do |row|
   Transaction.create(
   msno: Faker::Name.name_with_middle,
   payment: rand(1..5)*1000,
@@ -25,8 +25,8 @@ end
   plan_list_price: rand(1..5)*1000,
   actual_amount_paid: rand(1..5)*1000,
   is_auto_renew: rand(0..1),
-  transaction_date:  Faker::Date.birthday(1, 5),
-  membership_expire_date:  Faker::Date.birthday(1, 5),
+  transaction_date:  Faker::Date.birthday(1, 10).month,
+  membership_expire_date:  Faker::Date.birthday(1, 5).month,
   is_cancel: rand(0..1)
 )
 end
