@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  msno,: MyString
+  payment: 
+  payment_plan_days: 
+  plan_list_price: 
+  actual_amount_paid: 
+  is_auto_renew: 
+  transaction_date: 
+  membership_expire_date: 
+  is_cancel: 1
+
+two:
+  msno,: MyString
+  payment: 
+  payment_plan_days: 
+  plan_list_price: 
+  actual_amount_paid: 
+  is_auto_renew: 
+  transaction_date: 
+  membership_expire_date: 
+  is_cancel: 1

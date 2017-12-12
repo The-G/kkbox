@@ -8,12 +8,9 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu pull-right" role="menu" id="areachart_dropdown_menu">
-                    <li><a href="#">Action</a>
-                    </li>
-                    <li><a href="#">Another action</a>
-                    </li>
-                    <li><a href="#">Something else here</a>
-                    </li>
+                    <li id="action1"><a>Action</a><li>
+                    <li id="action2"><a>Another action</a><li>
+                    <li id="action3"><a>Something else here</a><li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a>
                     </li>
@@ -21,32 +18,8 @@
             </div>
         </div>
     </div>
-    <!-- /.panel-heading -->
     <div class="panel-body">
         <div id="morris-area-chart"></div>
     </div>
-    <!-- /.panel-body -->
 </div>
-
-
-<button id="yes"> GO GRAPH</button>
-<div id="chart"></div>
-
-<script type="text/javascript">
-	$(function() {
-  $('#yes').click(function() {
-			console.log("click!");
-      var chart = bb.generate({
-      bindto: "#chart",
-      data: {
-          type: "bar",
-          columns: [
-              ["data1", 30, 200, 100, 170, 150, 250],
-              ["data2", 130, 100, 140, 35, 110, 50]
-          ]
-      }
-      });
-		})
-  }); // $(function)
-
-</script>
+<%= render './index/bkdata/bkdata_area'%>

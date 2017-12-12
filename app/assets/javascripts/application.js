@@ -15,5 +15,5 @@
 //= require metisMenu
 //= require raphael
 //= require morris
-//= require morris-data
+// require morris-data
 //= sb-admin-2

@@ -1,0 +1,53 @@
+<script>
+  var line = Morris.Line({
+      element: 'morris-line-chart',
+      data: [{
+          date: '2009 Q1',
+          number: 1200,
+          number2: 1300
+      }, {
+          date: '2009 Q2',
+          number: 2666,
+          number2: 2700
+      }, {
+          date: '2009 Q3',
+          number: 1800,
+          number2: 1950
+      }, {
+          date: '2010 Q1',
+          number: 3600,
+          number2: 3200
+      }],
+      xkey: 'date',
+      ykeys: ['number','number2'],
+      labels: ['number', 'number2'],
+      pointSize: 2,
+      hideHover: 'auto',
+      resize: true
+  });
+
+function line_ajax(method){
+  console.log("line_ajax called");
+  $.ajax({
+        url : "/admin/transaction_" + method,
+        type : "post",
+        success : function(data) {
+          console.log(data);
+          line.setData(data);
+        }
+  });
+}
+
+
+
+$(function() {
+  $('#line1').click(function() {
+      console.log("line");
+      line_ajax("date");
+  });
+  $('#line2').click(function() {line.setData(area2);});
+  $('#line3').click(function() {line.setData(area3);});
+
+
+});
+</script>
