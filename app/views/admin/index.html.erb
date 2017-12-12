@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,21 +10,21 @@
 </head>
 
 <body>
-
     <div id="wrapper">
-      <%#= render "./index/navbar"%>
+      <%= render "./index/navbar"%>
         <div id="page-wrapper">
-          <%#=render './index/dashboard'%>
+          <%=render './index/panel/dashboard_panel'%>
             <div class="row">
                 <div class="col-lg-8">
-                    <%#= render './index/areachart'%>
-                    <%= render './index/barchart'%>
-                    <%#= render './index/timeline_panel'%>
+                    <%= render './index/panel/areachart_panel'%>
+                    <%= render './index/panel/barchart_panel'%>
+                    <%= render "./index/panel/table_panel" %>
+                    <%= render './index/panel/timeline_panel'%>
                 </div>
                 <div class="col-lg-4">
-                    <%#= render "./index/notification_panel"%>
-                    <%#= render "./index/donutchart" %>
-                    <%#= render "./index/chat_panel" %>
+                    <%= render "./index/panel/notification_panel"%>
+                    <%= render "./index/panel/donutchart_panel" %>
+                    <%= render "./index/panel/chat_panel" %>
                 </div>
             </div>
         </div>
