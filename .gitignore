@@ -16,3 +16,8 @@
 !/log/.keep
 /tmp
 gitflow
+
+# Ignore application configuration
+/config/application.yml
+Gemfile.lock
+db/schema.rb

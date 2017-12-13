@@ -14,28 +14,28 @@
 ActiveRecord::Schema.define(version: 20171212074425) do
 
   create_table "members", force: :cascade do |t|
-    t.string   "msno"
-    t.integer  "city"
-    t.integer  "bd"
-    t.string   "gender"
-    t.integer  "registered_via"
+    t.string   "msno",                   limit: 255
+    t.integer  "city",                   limit: 4
+    t.integer  "bd",                     limit: 4
+    t.string   "gender",                 limit: 255
+    t.integer  "registered_via",         limit: 4
     t.date     "registration_init_time"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "msno"
-    t.integer  "payment"
-    t.integer  "payment_plan_days"
-    t.integer  "plan_list_price"
-    t.integer  "actual_amount_paid"
-    t.integer  "is_auto_renew"
+    t.string   "msno",                   limit: 255
+    t.integer  "payment",                limit: 4
+    t.integer  "payment_plan_days",      limit: 4
+    t.integer  "plan_list_price",        limit: 4
+    t.integer  "actual_amount_paid",     limit: 4
+    t.integer  "is_auto_renew",          limit: 4
     t.date     "transaction_date"
     t.date     "membership_expire_date"
-    t.integer  "is_cancel"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "is_cancel",              limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
 end
