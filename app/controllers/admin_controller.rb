@@ -1,6 +1,13 @@
 class AdminController < ApplicationController
   def index
+    @comments=Comment.all
+  end
 
+  def create_comment
+    @comment=Comment.create(
+      name: "You",
+      comment: params["comment"]
+    )
   end
 
 
@@ -13,7 +20,21 @@ class AdminController < ApplicationController
   end
 
   def member_gender
-    member_group("gender")
+    members=Member.group("gender").count
+    count=[]
+    members.each do |k, v|
+       count.push({"label"=> k, "value"=>v})
+    end
+    render :json => count
+  end
+
+  def member_register_via
+    members=Member.group("registered_via").count
+    count=[]
+    members.each do |k, v|
+       count.push({"label"=> k, "value"=>v})
+    end
+    render :json => count
   end
 
   def transaction_date
@@ -34,8 +55,6 @@ private
     end
     render :json => count
   end
-
-
 
   def member_group(group)
     members=Member.group(group).count

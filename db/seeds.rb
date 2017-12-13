@@ -11,7 +11,7 @@
     msno: Faker::Name.name_with_middle,
     city: rand(1..5),
     bd: rand(1..10),
-    gender: ["m","f"].sample(1),
+    gender: ["m","f"].sample(1)[0],
     registered_via: rand(1..6),
     registration_init_time: Faker::Date.birthday(18, 65)
   )
@@ -30,6 +30,17 @@ end
   is_cancel: rand(0..1)
 )
 end
+
+10.times do |row|
+  Comment.create(
+    name: Faker::Name.name,
+    comment: Faker::HowIMetYourMother.quote
+)
+end
+
+
+# t.string :name
+# t.string :comment
 
 # t.string :msno
 # t.string :city

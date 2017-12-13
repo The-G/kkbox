@@ -1,0 +1,12 @@
+console.log('create_comment.js.erb called');
+template='<li class="right clearfix"><span class="chat-img pull-right"><img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" /></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><i class="fa fa-clock-o fa-fw"></i>'
+  + '</small><strong class="pull-right primary-font">'
+  + '<%=@comment.name%>'
+  + '</strong></div><p>'
+  + '<%=@comment.comment%>'
+  + '</p><div></li>';
+console.log(template);
+
+$('#btn-input').val('');
+$('.chat').append(template);
+$('#chatbody').scrollTop($('#chatbody').prop('scrollHeight'));

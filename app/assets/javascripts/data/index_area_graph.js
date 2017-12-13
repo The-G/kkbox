@@ -1,4 +1,3 @@
-<script>
   var area = Morris.Area({
       element: 'morris-area-chart',
       data: [{
@@ -100,4 +99,3 @@ $(function() {
 
 
 });
-</script>
