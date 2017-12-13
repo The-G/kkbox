@@ -1,0 +1,62 @@
+<script>
+  var line
+  // function init_dashboard(){
+  //   $.ajax({
+  //     url : "/admin/transaction_date",
+  //     type : "post",
+  //     success : function(data) {
+  //       line =
+  //         Morris.Line({
+  //           element: 'morris-line-chart',
+  //           data: data,
+  //           xkey: 'date',
+  //           ykeys: ['number','number2'],
+  //           labels: ['number', 'number2'],
+  //           pointSize: 2,
+  //           hideHover: 'auto',
+  //           resize: true
+  //         });
+  //     }
+  //   })
+  // }
+
+function dashboard_ajax1(method){
+  console.log("dashboard_ajax1 called");
+  $.ajax({
+        url : "/admin/transaction_" + method,
+        type : "post",
+        //data : {value: 'count_is_churn', value2 :'count_membership_expire_date'}
+        success : function(data) {
+          // console.log(data);
+          // var value = 'count_is_churn';
+          // var value2 = 'count_membership_expire_date';
+          $('#is_churn').text('count_is_churn');
+          $('#asdf').text('count_membership_expire_date');
+        }
+  })
+
+}
+
+function dashboard_ajax2(method){
+  console.log("dashboard_ajax2 called");
+  $.ajax({
+        url : "/admin/transaction_" + method,
+        type : "post",
+        success : function(data) {
+          console.log(data);
+          var value3 = 'count_new_transaction';
+          var value4 = 'count_is_cancel';
+        }
+  });
+
+}
+
+
+$(function() {
+//  init_line_graph();
+    dashboard_ajax1("is_churn");
+    dashboard_ajax1("this_month_expire_date");
+    // dashboard_ajax2("new_transaction");
+    // dashboard_ajax2("is_cancel");
+});
+</script>
