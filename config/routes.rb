@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   get 'user/index'
 
   get 'admin/index'
@@ -7,18 +9,18 @@ Rails.application.routes.draw do
 
 
 
-  # get 'page/tables'
-  # get 'page/forms'
-  # get 'page/panels_wells'
-  # get 'page/buttons'
-  # get 'page/notifications'
-  # get 'page/typography'
-  # get 'page/icons'
-  # get 'page/grid'
-  # get 'page/blank'
-  # get 'page/login'
-  # get 'page/flot'
-  # get 'page/morris'
+  get 'page/tables'
+  get 'page/forms'
+  get 'page/panels_wells'
+  get 'page/buttons'
+  get 'page/notifications'
+  get 'page/typography'
+  get 'page/icons'
+  get 'page/grid'
+  get 'page/blank'
+  get 'page/login'
+  get 'page/flot'
+  get 'page/morris'
 
 
   post 'admin/create_comment' => 'admin#create_comment'

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'devise'
 gem 'kaminari'
 gem 'awesome_print'
 gem 'faker'

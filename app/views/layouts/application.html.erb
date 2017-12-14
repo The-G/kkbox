@@ -4,7 +4,7 @@
   <title>Kkbox</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
 
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,17 @@
 
       <title>SB Admin 2 - Bootstrap Admin Theme</title>
 </head>
+
 <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if user_signed_in? %>
+    <%=link_to "SIGN OUT", destroy_user_session_path, method: :delete, data: {confirm: "are you sure"} %>
+  <% else %>
+    <%=link_to "SIGN IN", new_user_session_path %>
+  <%end %>
+
+
   <div id="wrapper">
     <%= render "./index/panel/navbar"%>
     <div id="page-wrapper">
