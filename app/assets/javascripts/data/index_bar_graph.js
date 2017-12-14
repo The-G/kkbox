@@ -34,15 +34,12 @@ function bar_ajax(method){
 
 
 function reDraw_bar(){
-    switch (parseInt(Math.random()*3)) {
+    switch (parseInt(Math.random()*2)) {
       case 0:
           bar_ajax("city");
           break;
       case 1:
           bar_ajax("bd");
-          break;
-      case 2:
-          bar_ajax("gender");
           break;
   }
 }
@@ -57,10 +54,6 @@ $(function() {
   $('#bar2').click(function() {
     bar_ajax("bd");
   });
-  $('#bar3').click(function() {
-    bar_ajax("gender");
-  });
-
   setInterval(function () {
     reDraw_bar();
   }, 2000);

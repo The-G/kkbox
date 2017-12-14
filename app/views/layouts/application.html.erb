@@ -15,8 +15,16 @@
       <title>SB Admin 2 - Bootstrap Admin Theme</title>
 </head>
 <body>
+  <div id="wrapper">
+    <%= render "./index/panel/navbar"%>
+    <div id="page-wrapper">
+      <%#=render './index/panel/dashboard_panel'%>
 
-<%= yield %>
+
+        <%= yield %>
+
+      </div>
+  </div>
 
 </body>
 </html>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'user/index'
+
   get 'admin/index'
 
+  get 'admin/memberlist'
   get 'page/tables'
   get 'page/forms'
   get 'page/panels_wells'
@@ -12,7 +15,7 @@ Rails.application.routes.draw do
   get 'page/blank'
   get 'page/login'
   get 'page/flot'
-
+  get 'page/morris'
 
 
   post 'admin/create_comment' => 'admin#create_comment'

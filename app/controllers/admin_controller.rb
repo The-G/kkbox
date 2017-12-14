@@ -3,6 +3,13 @@ class AdminController < ApplicationController
     @comments=Comment.all
   end
 
+  def memberlist
+    #@members=Member.order(id: :desc).page params[:page]
+    @members = Member.order("created_at DESC").page(params[:page]).per(10)
+    #@transactions=Transaction.order(id: :desc).page params[:page]
+  end
+
+
   def create_comment
     @comment=Comment.create(
       name: "You",

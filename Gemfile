@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'kaminari'
 gem 'awesome_print'
 gem 'faker'
 gem 'bootstrap-sass'
