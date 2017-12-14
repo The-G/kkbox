@@ -53,8 +53,24 @@ class AdminController < ApplicationController
     transaction_group('membership_expire_date')
   end
 
+  #jh
+  def transaction_is_auto_renew
+    #transaction_group_fromto('is_auto_renew', Time.now.strftime("%Y-%m-1"), Time.now.strftime("%Y-%m-31"))
+    transaction_group_fromto('is_auto_renew', "2017-03-01","2017-12-31")
+  end
 
 private
+  #jh
+  def transaction_group_fromto(group, begin_day, end_day)
+    transaction=Transaction.where('transaction_date BETWEEN ? AND ?', begin_day, end_day).group(group).count
+    count=[]
+    transaction.each do |k, v|
+      puts "key: " +k.to_s + "value: "+v.to_s
+      count.push({"label"=> k, "value"=>v})
+    end
+    render :json => count
+  end
+
   def transaction_group(group)
     transaction=Transaction.group(group).count
     count=[]
