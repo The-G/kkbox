@@ -1,14 +1,12 @@
 class AdminController < ApplicationController
-
-  before_action :transaction_is_churn, :transaction_this_month_expire_date, :transaction_new_transaction, :transaction_is_cancel
-
   def index
     @comments=Comment.all
   end
 
   def memberlist
     #@members=Member.order(id: :desc).page params[:page]
-    @members = Member.order("created_at DESC").page(params[:page]).per(10)
+    #@members = Member.order("created_at DESC").page(params[:page]).per(10)
+    @members = Member.all
     #@transactions=Transaction.order(id: :desc).page params[:page]
   end
 
@@ -55,28 +53,13 @@ class AdminController < ApplicationController
     transaction_group('membership_expire_date')
   end
 
- def transaction_is_churn
-   transaction_this_group('is_predictedChurn')
- end
-
- def transaction_this_month_expire_date
-   transaction_this_group('membership_expire_date')
- end
-
- def transaction_new_transaction
-   transaction_last_group('transaction_date')
- end
-
- def  transaction_is_cancel
-   transaction_last_group('is_cancel')
- end
 
 private
   def transaction_group(group)
     transaction=Transaction.group(group).count
     count=[]
     transaction.each do |k, v|
-      count.push({"date"=> k, "number"=>v, "number2"=>rand(v-10..v+10)}, "")
+      count.push({"date"=> k, "number"=>v, "number2"=>rand(v-10..v+10)})
     end
     render :json => count
   end
@@ -89,5 +72,4 @@ private
     end
     render :json => count
   end
-
 end

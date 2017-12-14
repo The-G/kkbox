@@ -1,16 +1,21 @@
 <%=render './index/panel/dashboard_panel'%>
 <div class="row">
   <div class="col-lg-8">
-      <%= render './index/panel/flow_line_chart_moving_panel'%>
+      <%#= render './index/panel/flow_line_chart_moving_panel'%>
       <%= render '/index/panel/linechart_panel'%>
-      <%= render '/index/panel/areachart_panel'%>
-      <%= render '/index/panel/barchart_panel'%>
-      <%= render "./index/panel/table_panel" %>
-      <%= render './index/panel/timeline_panel'%>
+      <%#= render '/index/panel/areachart_panel'%>
+
+      <div class="col-lg-8">
+        <%= render '/index/panel/barchart_panel'%>
+      </div>
+      <div class="col-lg-4">
+        <%= render "./index/panel/table_panel" %>
+      </div>
+      <%#= render './index/panel/timeline_panel'%>
   </div>
   <div class="col-lg-4">
       <%= render "./index/panel/donutchart_panel" %>
-      <%= render "./index/panel/notification_panel"%>
+      <%#= render "./index/panel/notification_panel"%>
       <%= render "./index/panel/chat_panel" %>
   </div>
 </div>

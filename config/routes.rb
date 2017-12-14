@@ -2,20 +2,23 @@ Rails.application.routes.draw do
   get 'user/index'
 
   get 'admin/index'
-
   get 'admin/memberlist'
-  get 'page/tables'
-  get 'page/forms'
-  get 'page/panels_wells'
-  get 'page/buttons'
-  get 'page/notifications'
-  get 'page/typography'
-  get 'page/icons'
-  get 'page/grid'
-  get 'page/blank'
-  get 'page/login'
-  get 'page/flot'
-  get 'page/morris'
+  get 'admin/modelInDetail'
+
+
+
+  # get 'page/tables'
+  # get 'page/forms'
+  # get 'page/panels_wells'
+  # get 'page/buttons'
+  # get 'page/notifications'
+  # get 'page/typography'
+  # get 'page/icons'
+  # get 'page/grid'
+  # get 'page/blank'
+  # get 'page/login'
+  # get 'page/flot'
+  # get 'page/morris'
 
 
   post 'admin/create_comment' => 'admin#create_comment'
@@ -33,10 +36,4 @@ Rails.application.routes.draw do
 
   post 'admin/transaction_date' => 'admin#transaction_date'
   post 'admin/transaction_membership_expire_date' => 'admin#transaction_membership_expire_date'
-
-
-  post 'admin/transaction_is_churn' => 'admin#transaction_is_churn'
-  post 'admin/transaction_new_transaction' => 'admin#transaction_new_transaction'
-  post 'admin/transaction_this_month_expire_date' => 'admin#transaction_this_month_expire_date'
-  post 'admin/transaction_is_cancel' => 'admin#transaction_is_cancel'
 end

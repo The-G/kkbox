@@ -27,9 +27,7 @@ end
   is_auto_renew: rand(0..1),
   transaction_date:  Faker::Date.birthday(1, 10).month,
   membership_expire_date:  Faker::Date.birthday(1, 5).month,
-  is_cancel: rand(0..1),
-  is_churn: rand(0..1),
-  is_predictedChurn: rand(0..1)
+  is_cancel: rand(0..1)
 )
 end
 

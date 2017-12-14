@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 20171213135517) do
     t.integer  "is_cancel"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "is_churn"
-    t.integer  "is_predictedChurn"
   end
 
 end
