@@ -13,6 +13,7 @@
             labels: ['number', 'number2'],
             pointSize: 2,
             hideHover: 'auto',
+            lineColors: ["red","blue"],
             resize: true
           });
       }
