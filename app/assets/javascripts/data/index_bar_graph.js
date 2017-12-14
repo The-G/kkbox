@@ -11,7 +11,7 @@ function init_bar_graph(){
                   data: data,
                   xkey: 'y',
                   ykeys: ['a'],
-                  labels: ['Series A'],
+                  labels: ['인원수'],
                   hideHover: 'auto',
                   resize: true
             });
@@ -32,20 +32,6 @@ function bar_ajax(method){
   });
 }
 
-
-function reDraw_bar(){
-    switch (parseInt(Math.random()*2)) {
-      case 0:
-          bar_ajax("city");
-          break;
-      case 1:
-          bar_ajax("bd");
-          break;
-  }
-}
-
-
-
 $(function() {
   init_bar_graph();
   $('#bar1').click(function() {
@@ -54,7 +40,7 @@ $(function() {
   $('#bar2').click(function() {
     bar_ajax("bd");
   });
-  setInterval(function () {
-    reDraw_bar();
-  }, 2000);
+  // setInterval(function () {
+  //   reDraw_bar();
+  // }, 2000);
 });
