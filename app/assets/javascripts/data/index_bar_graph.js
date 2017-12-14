@@ -13,8 +13,8 @@ function init_bar_graph(){
                   ykeys: ['a'],
                   labels: ['인원수'],
                   hideHover: 'auto',
-                  resize: true,
-                  color: ["blue","red"]
+                  barColors: ["blue","red","pink","green","yellow","purple"],
+                  resize: true
             });
       }
   })
