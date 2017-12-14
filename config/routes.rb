@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
   get 'user/index'
 
   get 'admin/index'
   get 'admin/memberlist'
   get 'admin/modelInDetail'
+
+
+
 
 
 
@@ -23,6 +26,13 @@ Rails.application.routes.draw do
   get 'page/morris'
 
 
+
+#line_chart
+  post 'admin/member_registration' => 'admin#member_registration'
+  post 'admin/transaction_count' =>'admin#transaction_count'
+  post 'admin/churn_expect_vs_actual' => 'admin#churn_expect_vs_actual'
+
+  post 'admin/transaction_revenue' => 'admin#transaction_revenue'
   post 'admin/create_comment' => 'admin#create_comment'
 
   root 'admin#index'

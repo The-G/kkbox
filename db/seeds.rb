@@ -13,7 +13,7 @@
     bd: rand(1..10),
     gender: ["male","female"].sample(1)[0],
     registered_via: rand(1..6),
-    registration_init_time: Faker::Date.birthday(18, 65)
+    registration_init_time: Faker::Time.backward(720).strftime("%Y-%m-%d")
   )
 end
 

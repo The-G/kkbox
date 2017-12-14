@@ -102,6 +102,47 @@ class AdminController < ApplicationController
     transaction_group_fromto('is_auto_renew', "2017-03-01","2017-12-31")
   end
 
+  def churn_expect_vs_actual
+    churn_actual=Churn.where(actual: "1").group("strftime('%Y-%m', date)").count
+    churn_predict=Churn.where(predict: "1").group("strftime('%Y-%m', date)").count
+    count=[]
+    churn_actual.each do |k, v|
+      puts "date: " +k.to_s + "number: "+v.to_s
+      count.push({"date"=> k, "number"=>v, "number2"=> churn_predict[k]})
+    end
+    render :json => count
+  end
+
+  def member_registration
+    registration = Member.group("strftime('%Y-%m', registration_init_time)").count
+    count=[]
+    registration.each do |k, v|
+      puts "date: " +k.to_s + "number: "+v.to_s
+      count.push({"date"=> k, "number"=>v})
+    end
+    render :json => count
+  end
+
+  def transaction_count
+    registration = Transaction.group("strftime('%Y-%m', transaction_date)").count
+    count=[]
+    registration.each do |k, v|
+      puts "date: " +k.to_s + "number: "+v.to_s
+      count.push({"date"=> k, "number"=>v})
+    end
+    render :json => count
+  end
+
+  def transaction_revenue
+    revenue = Transaction.group("strftime('%Y-%m', transaction_date)").sum('actual_amount_paid')
+    count=[]
+    revenue.each do |k, v|
+      puts "date: " +k.to_s + "number: "+v.to_s
+      count.push({"date"=> k, "number"=>v})
+    end
+    render :json => count
+  end
+
 private
   #jh
   def transaction_group_fromto(group, begin_day, end_day)
