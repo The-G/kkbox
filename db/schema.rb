@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20171214062445) do
-=======
 ActiveRecord::Schema.define(version: 20171214210938) do
->>>>>>> feature/jihyuk
 
   create_table "churns", force: :cascade do |t|
     t.string   "msno"
@@ -31,7 +27,7 @@ ActiveRecord::Schema.define(version: 20171214210938) do
     t.string   "city"
     t.integer  "bd"
     t.string   "gender"
-    t.date     "registered_via"
+    t.integer  "registered_via"
     t.date     "registration_init_time"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false

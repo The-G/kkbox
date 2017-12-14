@@ -5,7 +5,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string :city
       t.integer :bd
       t.string :gender
-      t.date :registered_via
+      t.integer :registered_via
       t.date :registration_init_time
 
       t.timestamps null: false
