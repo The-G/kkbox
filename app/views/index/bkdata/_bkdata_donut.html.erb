@@ -1,0 +1,29 @@
+<script>
+var donut;
+function init_donut_graph(){
+  console.log("init_donut_graph called");
+  $.ajax({
+      url : "/admin/member_gender",
+      type : "post",
+      success : function(data){
+        console.log(data);
+        donut = Morris.Donut({
+            element: 'morris-donut-chart',
+            data: [{
+                label: "Female",
+                value: data[0].a
+              }, {
+                label: "Male",
+                value: data[1].a
+              }],
+            resize: true
+        });
+      }
+  })
+};
+
+$(function() {
+  init_donut_graph();
+});
+
+</script>

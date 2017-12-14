@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'tzinfo-data'
 
 gem 'kaminari'
 gem 'awesome_print'

@@ -1,7 +1,7 @@
   var line;
   function init_line_graph(){
     $.ajax({
-      url : "/admin/transaction_date",
+      url : "/admin/transaction_is_churn",
       type : "post",
       success : function(data) {
         line =
