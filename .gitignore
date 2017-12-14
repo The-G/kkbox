@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 gitflow
+config/application.yml
