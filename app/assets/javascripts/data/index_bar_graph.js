@@ -1,4 +1,3 @@
-<script>
 var bar;
 function init_bar_graph(){
   console.log("init_bar_graph_function called");
@@ -27,10 +26,25 @@ function bar_ajax(method){
         type : "post",
         success : function(data) {
           console.log(data);
+          $('#barChartTitle').text(method);
           bar.setData(data);
         }
   });
 }
+
+
+function reDraw_bar(){
+    switch (parseInt(Math.random()*2)) {
+      case 0:
+          bar_ajax("city");
+          break;
+      case 1:
+          bar_ajax("bd");
+          break;
+  }
+}
+
+
 
 $(function() {
   init_bar_graph();
@@ -40,8 +54,7 @@ $(function() {
   $('#bar2').click(function() {
     bar_ajax("bd");
   });
-  $('#bar3').click(function() {
-    bar_ajax("gender");
-  });
+  setInterval(function () {
+    reDraw_bar();
+  }, 2000);
 });
-</script>

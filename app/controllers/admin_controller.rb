@@ -3,7 +3,21 @@ class AdminController < ApplicationController
   before_action :transaction_is_churn, :transaction_this_month_expire_date, :transaction_new_transaction, :transaction_is_cancel
 
   def index
+    @comments=Comment.all
+  end
 
+  def memberlist
+    #@members=Member.order(id: :desc).page params[:page]
+    @members = Member.order("created_at DESC").page(params[:page]).per(10)
+    #@transactions=Transaction.order(id: :desc).page params[:page]
+  end
+
+
+  def create_comment
+    @comment=Comment.create(
+      name: "You",
+      comment: params["comment"]
+    )
   end
 
 
@@ -16,7 +30,21 @@ class AdminController < ApplicationController
   end
 
   def member_gender
-    member_group("gender")
+    members=Member.group("gender").count
+    count=[]
+    members.each do |k, v|
+       count.push({"label"=> k, "value"=>v})
+    end
+    render :json => count
+  end
+
+  def member_register_via
+    members=Member.group("registered_via").count
+    count=[]
+    members.each do |k, v|
+       count.push({"label"=> k, "value"=>v})
+    end
+    render :json => count
   end
 
   def transaction_date
@@ -51,40 +79,6 @@ private
       count.push({"date"=> k, "number"=>v, "number2"=>rand(v-10..v+10)}, "")
     end
     render :json => count
-  end
-
-  def transaction_this_group(group)
-    transaction = Transaction.group(group).count
-    values=[]
-    count_is_churn = 0
-    count_membership_expire_date = 0
-    transaction.each do |k|
-      if is_predictedChurn==1
-        count_is_churn += 1
-      end
-      if transaction.membership_expire_date.strftime("%Y") == Time.now.strftime("%Y") && transaction.membership_expire_date.strftime("%m") == Time.now.strftime("%m")
-        count_membership_expire_date += 1
-      end
-      values.push({"count_is_churn"=>count_is_churn, "count_membership_expire_date"=>count_membership_expire_date})
-    end
-    render :json => values
-  end
-
-  def transaction_last_group(group)
-    transaction = Transaction.group(group).count
-    values=[]
-    count_new_transaction = 0
-    count_is_cancel = 0
-    transaction.each do |k|
-      if transaction.membership_expire_date.strftime("%Y") == Time.now.strftime("%Y") && transaction.membership_expire_date.strftime("%m") == Time.now.strftime("%m")-1 && transaction.is_cancel ==1
-        count_is_cancel += 1
-      end
-      if transaction.transaction_date.strftime("%Y") == Time.now.strftime("%Y") && transaction.transaction_date.strftime("%m") == Time.now.strftime("%m")-1
-        count_new_transaction += 1
-      end
-      values.push({"count_is_cancel"=>count_is_cancel, "count_new_transaction"=>count_new_transaction})
-    end
-    render :json => values
   end
 
   def member_group(group)

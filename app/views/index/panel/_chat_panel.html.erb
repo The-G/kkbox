@@ -36,69 +36,44 @@
         </div>
     </div>
     <!-- /.panel-heading -->
-    <div class="panel-body">
+    <div class="panel-body" id="chatbody">
         <ul class="chat">
-            <li class="left clearfix">
-                <span class="chat-img pull-left">
-                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <strong class="primary-font">Jack Sparrow</strong>
-                        <small class="pull-right text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                        </small>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                    </p>
-                </div>
-            </li>
-            <li class="right clearfix">
-                <span class="chat-img pull-right">
-                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <small class=" text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                    </p>
-                </div>
-            </li>
-            <li class="left clearfix">
-                <span class="chat-img pull-left">
-                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <strong class="primary-font">Jack Sparrow</strong>
-                        <small class="pull-right text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                    </p>
-                </div>
-            </li>
-            <li class="right clearfix">
-                <span class="chat-img pull-right">
-                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                </span>
-                <div class="chat-body clearfix">
-                    <div class="header">
-                        <small class=" text-muted">
-                            <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                    </p>
-                </div>
-            </li>
+        <%@comments.each do |comment| %>
+          <% if comment.name == "You" %>
+          <li class="right clearfix">
+              <span class="chat-img pull-right">
+                  <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+              </span>
+              <div class="chat-body clearfix">
+                  <div class="header">
+                      <small class=" text-muted">
+                          <i class="fa fa-clock-o fa-fw"></i> <%=comment.created_at%></small>
+                      <strong class="pull-right primary-font"><%=comment.name%></strong>
+                  </div>
+                  <p>
+                      <%=comment.comment%>
+                  </p>
+              </div>
+          </li>
+          <% else %>
+              <li class="left clearfix">
+                  <span class="chat-img pull-left">
+                      <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                  </span>
+                  <div class="chat-body clearfix">
+                      <div class="header">
+                          <strong class="primary-font">  <%=comment.name%></strong>
+                          <small class="pull-right text-muted">
+                              <i class="fa fa-clock-o fa-fw"></i> <%=comment.created_at%>
+                          </small>
+                      </div>
+                      <p>
+                        <%=comment.comment%>
+                      </p>
+                  </div>
+              </li>
+            <% end %>
+        <%end%>
         </ul>
     </div>
     <!-- /.panel-body -->
@@ -114,3 +89,17 @@
     </div>
     <!-- /.panel-footer -->
 </div>
+
+<script>
+$(function (){
+  $('#chatbody').scrollTop($('#chatbody').prop('scrollHeight'));
+  $('#btn-chat').click(function(){
+      msg=$('#btn-input').val();
+      $.ajax({
+            url : "/admin/create_comment",
+            type : "post",
+            data : {comment: msg},
+      });
+  });
+});
+</script>

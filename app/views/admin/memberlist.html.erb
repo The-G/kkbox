@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"><i class="fa  fa-user"></i> Meber list</h1>
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+<div class="panel panel-default">
+    <!-- /.panel-heading -->
+
+    <div class="panel-body">
+        <div class="row">
+            <!-- <div class="col-lg-4"> -->
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                              <th>msno </th>
+                              <th>city</th>
+                              <th>bd</th>
+                              <th>gender</th>
+                              <th>registered_via</th>
+                              <th>registration_init_time</th>
+                              <th>created_at</th>
+                              <th>updated_at</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                              <% @members.each do |member| %>
+                              <tr>
+                                <td><%=member.msno                    %></td>
+                                <td><%=member.city                    %></td>
+                                <td><%=member.bd                      %></td>
+                                <td><%=member.gender                  %></th>
+                                <td><%=member.registered_via          %></th>
+                                <td><%=member.registration_init_time  %></th>
+                                <td><%=member.created_at.to_date()              %></th>
+                                <td><%=member.updated_at.to_date()              %></th>
+                              </tr>
+                              <% end %>
+                        </tbody>
+                    </table>
+                    <%= paginate @members %>
+                </div>
+                <!-- /.table-responsive -->
+            <!-- </div> -->
+            <!-- /.col-lg-4 (nested) -->
+            <div class="col-lg-8">
+                <div id="morris-bar-chart"></div>
+            </div>
+            <!-- /.col-lg-8 (nested) -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.panel-body -->
+</div>

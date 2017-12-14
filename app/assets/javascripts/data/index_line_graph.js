@@ -1,5 +1,4 @@
-<script>
-  var line
+  var line;
   function init_line_graph(){
     $.ajax({
       url : "/admin/transaction_date",
@@ -27,9 +26,22 @@ function line_ajax(method){
         type : "post",
         success : function(data) {
           console.log(data);
+          console.log(method);
+          $('#lineChartTitle').text(method);
           line.setData(data);
         }
   });
+}
+
+function reDraw_line(){
+    switch (parseInt(Math.random()*2)) {
+      case 0:
+          line_ajax("date");
+          break;
+      case 1:
+          line_ajax("membership_expire_date");
+          break;
+  }
 }
 
 
@@ -43,5 +55,8 @@ $(function() {
       line_ajax("membership_expire_date");
   });
 
+
+  setInterval(function () {
+    reDraw_line();
+  }, 3000);
 });
-</script>
