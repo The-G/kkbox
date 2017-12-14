@@ -1,14 +1,51 @@
 class AdminController < ApplicationController
+    @@query1=Member.where(gender:'f')
+    @@query2=Member.where(gender:'m')
+    @@query3=Member.where(city: 1)
+    @@query4=Member.where(city: 4, gender: 'm')
+
   def index
     @comments=Comment.all
+    @dashboard1 = @@query1.count
+    @dashboard2 = @@query2.count
+    @dashboard3 = @@query3.count
+    @dashboard4 = @@query4.count
   end
 
   def memberlist
-    #@members=Member.order(id: :desc).page params[:page]
-    #@members = Member.order("created_at DESC").page(params[:page]).per(10)
-    @members = Member.all
-    #@transactions=Transaction.order(id: :desc).page params[:page]
+    case params[:table]
+
+      #table_basic
+      when "table_basic"
+      @members = Member.all
+      p @members
+
+      #table_churn
+      when "table_churn"
+      @members = @@query1
+      #@members=Member.find_by_sql "select * from Members m where m.msno=(select DISTINCT n.msno from Members n where n.expected_churn>=0.6)"
+
+      #table_expire
+      when "table_expire"
+      @members = @@query2
+      #@members=Member.find_by_sql "select * from Member where msno=(select DISTINCT msno from transactions where membership_expire_date>=20171201 and is_auto_renew=0)"
+
+
+      #table_newtran
+      when "table_newtran"
+      @members = @@query3
+      #@members=Member.find_by_sql "select * from Member where msno=(select DISTINCT msno from transactions where transaction_date>=20170201 and transaction_date<20170301 and is_cancel=1)"
+
+      #table_cancel
+      when "table_cancel"
+      @members = @@query4
+      #@members=Member.find_by_sql "select * from Member where msno=(select DISTINCT msno from transactions where transaction_date>=20170201 and transaction_date<20170301 and is_cancel=1)"
+    end
+  p @members
   end
+
+
+
 
 
   def create_comment

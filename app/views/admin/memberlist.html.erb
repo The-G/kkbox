@@ -13,27 +13,17 @@
               <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                              <th>msno </th>
-                              <th>city</th>
-                              <th>bd</th>
-                              <th>gender</th>
-                              <th>registered_via</th>
-                              <th>registration_init_time</th>
-                              <th>created_at</th>
-                              <th>updated_at</th>
+                              <%@members.column_names.each do |c|  %>
+                              <th> <%=c%> </th>
+                              <% end %>
                             </tr>
                         </thead>
                         <tbody>
                               <% @members.each do |member| %>
                               <tr>
-                                <td><%=member.msno                    %></td>
-                                <td><%=member.city                    %></td>
-                                <td><%=member.bd                      %></td>
-                                <td><%=member.gender                  %></th>
-                                <td><%=member.registered_via          %></th>
-                                <td><%=member.registration_init_time  %></th>
-                                <td><%=member.created_at.to_date()              %></th>
-                                <td><%=member.updated_at.to_date()              %></th>
+                                <% @members.column_names.each do |c| %>
+                                <td><%=member[c]                    %></td>
+                                <% end %>
                               </tr>
                               <% end %>
                         </tbody>
