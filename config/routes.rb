@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+  root 'admin#index'
   get 'user/index'
 
   get 'admin/index'
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   post 'admin/create_comment' => 'admin#create_comment'
 
-  root 'admin#index'
+
   post 'admin/member_city' => 'admin#member_city'
   post 'admin/member_bd' => 'admin#member_bd'
   post 'admin/member_gender' => 'admin#member_gender'

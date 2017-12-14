@@ -35,7 +35,8 @@ $(function() {
       ykeys: ['a', 'b'],
       labels: ['Series A', 'Series B'],
       hideHover: 'auto',
-      resize: true
+      resize: true,
+      lineColors: ['red', 'blue'],
   });
 
     var area = Morris.Area({
@@ -93,7 +94,10 @@ $(function() {
             label: "Mail-Order Sales",
             value: 20
         }],
-        resize: true
+        resize: true,
+        backgroundColor: '#ccc',
+        labelColor: '#060',
+        colors: ["#9CC4E4", "#3A89C9"]
     });
 
 
