@@ -1,19 +1,34 @@
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
+      <div class="container-fluid">
         <ul class="nav" id="side-menu">
             <%#=render './index/panel/navbar/sidebar_search'%>
             <li>
-                <a href="/admin/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="/admin/memberlist?table=table_basic"><i class="fa fa-user fa-fw"></i> Memberlist</a>
-            </li>
-            <li>
-                <a href="/admin/modelInDetail"><i class="fa  fa-file-text-o  fa-fw"></i> Model In Detail</a>
-            </li>
 
+                <%if user_signed_in?%>
+                  <h5><%= current_user.email %>님, 환영합니다.</h5>
+                <%else%>
+                <%end%>
+                <% if user_signed_in? %>
+                  <li><%=link_to "Logout", destroy_user_session_path, method: :DELETE, data: {confirm: "정말 로그아웃할꺼임?"} %></li>
+                <% else %>
+                  <li><%=link_to "Login", new_user_session_path %></li>
+                <%end %>
+              
+
+            </li>
+              <li>
+                  <a href="/admin/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+              </li>
+              <li>
+                  <a href="/admin/memberlist?table=table_basic"><i class="fa fa-user fa-fw"></i> Memberlist</a>
+              </li>
+              <li>
+                  <a href="/admin/modelInDetail"><i class="fa  fa-file-text-o  fa-fw"></i> Model In Detail</a>
+              </li>
             <%#= render './index/panel/navbar/sidebar_hidden'%>
-        </ul>
+          </ul>
+        </div>
     </div>
     <!-- /.sidebar-collapse -->
 </div>

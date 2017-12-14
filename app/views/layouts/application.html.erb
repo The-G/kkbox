@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
+<<<<<<< HEAD
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,29 +14,27 @@
 
       <title>SB Admin 2 - Bootstrap Admin Theme</title>
       <!-- <link href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/sticky-footer.css" rel="stylesheet"> -->
+=======
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Bootstrap Admin Theme</title>
+>>>>>>> feature/kwonb
 </head>
 
 
 
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if user_signed_in? %>
-    <%=link_to "SIGN OUT", destroy_user_session_path, method: :delete, data: {confirm: "are you sure"} %>
-  <% else %>
-    <%=link_to "SIGN IN", new_user_session_path %>
-  <%end %>
-
 
   <div id="wrapper">
     <%= render "./index/panel/navbar"%>
+
     <div id="page-wrapper">
-      <%#=render './index/panel/dashboard_panel'%>
-
-
-        <%= yield %>
-
-      </div>
+      <%= yield %>
+    </div>
   </div>
 
 
