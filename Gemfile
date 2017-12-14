@@ -6,6 +6,7 @@ gem 'kaminari'
 gem 'awesome_print'
 gem 'faker'
 gem 'bootstrap-sass'
+gem 'rails_db'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
 # Use sqlite3 as the database for Active Record

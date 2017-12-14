@@ -11,31 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214045519) do
+ActiveRecord::Schema.define(version: 20171214062445) do
 
-  create_table "comments", force: :cascade do |t|
-    t.string   "name"
-    t.string   "comment"
+  create_table "chruns", force: :cascade do |t|
+    t.string   "msno"
+    t.date     "date"
+    t.integer  "predict"
+    t.integer  "actual"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "churns", force: :cascade do |t|
+    t.string   "msno"
+    t.date     "date"
+    t.integer  "predict"
+    t.integer  "actual"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "members", force: :cascade do |t|
     t.string   "msno"
-    t.integer  "city"
+    t.string   "city"
     t.integer  "bd"
     t.string   "gender"
-    t.integer  "registered_via"
+    t.date     "registered_via"
     t.date     "registration_init_time"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-  end
-
-  create_table "timelines", force: :cascade do |t|
-    t.string   "subject"
-    t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -50,8 +54,6 @@ ActiveRecord::Schema.define(version: 20171214045519) do
     t.integer  "is_cancel"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "is_churn"
-    t.integer  "is_predictedChurn"
   end
 
   create_table "users", force: :cascade do |t|

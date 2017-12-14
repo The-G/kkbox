@@ -1,7 +1,7 @@
 class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
-      t.string :msno
+      t.references :member
       t.integer :payment
       t.integer :payment_plan_days
       t.integer :plan_list_price
@@ -10,6 +10,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.date :transaction_date
       t.date :membership_expire_date
       t.integer :is_cancel
+
       t.timestamps null: false
     end
   end
