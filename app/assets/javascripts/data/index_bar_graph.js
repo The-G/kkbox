@@ -1,4 +1,3 @@
-<script>
 var bar;
 function init_bar_graph(){
   console.log("init_bar_graph_function called");
@@ -12,9 +11,10 @@ function init_bar_graph(){
                   data: data,
                   xkey: 'y',
                   ykeys: ['a'],
-                  labels: ['Series A'],
+                  labels: ['인원수'],
                   hideHover: 'auto',
-                  resize: true
+                  resize: true,
+                  color: ["blue","red"]
             });
       }
   })
@@ -27,6 +27,7 @@ function bar_ajax(method){
         type : "post",
         success : function(data) {
           console.log(data);
+          $('#barChartTitle').text(method);
           bar.setData(data);
         }
   });
@@ -40,8 +41,7 @@ $(function() {
   $('#bar2').click(function() {
     bar_ajax("bd");
   });
-  $('#bar3').click(function() {
-    bar_ajax("gender");
-  });
+  // setInterval(function () {
+  //   reDraw_bar();
+  // }, 2000);
 });
-</script>

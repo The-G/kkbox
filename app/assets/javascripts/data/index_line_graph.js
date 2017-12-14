@@ -1,8 +1,7 @@
-<script>
-  var line
+  var line;
   function init_line_graph(){
     $.ajax({
-      url : "/admin/transaction_date",
+      url : "/admin/churn_expect_vs_actual",
       type : "post",
       success : function(data) {
         line =
@@ -20,28 +19,35 @@
     })
   }
 
-function line_ajax(method){
+function line_ajax(url){
   console.log("line_ajax called");
   $.ajax({
-        url : "/admin/transaction_" + method,
+        url : url,
         type : "post",
         success : function(data) {
           console.log(data);
+          $('#lineChartTitle').text(url);
           line.setData(data);
         }
   });
 }
 
-
-
 $(function() {
   init_line_graph();
   $('#line1').click(function() {
-      line_ajax("date");
+      line_ajax("/admin/churn_expect_vs_actual");
   });
   $('#line2').click(function() {
-      line_ajax("membership_expire_date");
+      line_ajax("/admin/member_registration");
   });
 
+  $('#line3').click(function() {
+      line_ajax("/admin/transaction_count");
+  });
+
+  $('#line4').click(function() {
+      line_ajax("/admin/transaction_revenue");
+  });
+
+
 });
-</script>

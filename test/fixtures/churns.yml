@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  msno: MyString
+  date: 2017-12-14
+  predict: 1
+  actual: 1
+
+two:
+  msno: MyString
+  date: 2017-12-14
+  predict: 1
+  actual: 1

@@ -4,14 +4,40 @@
   <title>Kkbox</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <!-- <script src="https://d3js.org/d3.v4.min.js"></script>
-  <script src="../assets/billboard.js"></script>
-  <link rel="../assets" href="billboard.css"> -->
+
+<<<<<<< HEAD
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <title>SB Admin 2 - Bootstrap Admin Theme</title>
+      <!-- <link href="https://getbootstrap.com/docs/4.0/examples/sticky-footer/sticky-footer.css" rel="stylesheet"> -->
+=======
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Bootstrap Admin Theme</title>
+>>>>>>> feature/kwonb
 </head>
+
+
+
 <body>
 
-<%= yield %>
+  <div id="wrapper">
+    <%= render "./index/panel/navbar"%>
+
+    <div id="page-wrapper">
+      <%= yield %>
+    </div>
+  </div>
+
+
 
 </body>
 </html>

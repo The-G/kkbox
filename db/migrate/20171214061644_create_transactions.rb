@@ -10,6 +10,7 @@ class CreateTransactions < ActiveRecord::Migration
       t.date :transaction_date
       t.date :membership_expire_date
       t.integer :is_cancel
+
       t.timestamps null: false
     end
   end

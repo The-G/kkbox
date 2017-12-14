@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-      <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+      <i class="fa fa-bar-chart-o fa-fw"></i> <span id="barChartTitle">Bar Chart Example</span>
       <div class="pull-right">
           <div class="btn-group">
               <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -9,8 +9,7 @@
               </button>
               <ul class="dropdown-menu pull-right" role="menu">
                   <li id="bar1"><a>CITY</a><li>
-                  <li id="bar2"><a>BD</a><li>
-                  <li id="bar3"><a>GENDER</a><li>
+                  <li id="bar2"><a>AGE</a><li>
                   <li class="divider"></li>
                   <li><a href="#">Separated link</a>
                   </li>
@@ -22,4 +21,4 @@
       <div id="morris-bar-chart"></div>
   </div>
 </div>
-<%= render './index/bkdata/bkdata_bar'%>
+<script src="/assets/data/index_bar_graph.js"></script>

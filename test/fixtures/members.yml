@@ -2,16 +2,16 @@
 
 one:
   msno: MyString
-  city: 1
+  city: MyString
   bd: 1
   gender: MyString
-  registered_via: 1
-  registration_init_time: 2017-12-12
+  registered_via: 2017-12-14
+  registration_init_time: 2017-12-14
 
 two:
   msno: MyString
-  city: 1
+  city: MyString
   bd: 1
   gender: MyString
-  registered_via: 1
-  registration_init_time: 2017-12-12
+  registered_via: 2017-12-14
+  registration_init_time: 2017-12-14

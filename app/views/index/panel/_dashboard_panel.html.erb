@@ -1,25 +1,47 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
+        <h1 class="page-header"><i class="fa fa-dashboard"></i> Dashboard</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 <div class="row">
     <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa  fa-user  fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge"><%=@dashboard1%></div>
+                        <div>예측 이탈 고객수</div>
+                    </div>
+                </div>
+            </div>
+              <a href="/admin/memberlist?table=table_churn">
+                <div class="panel-footer">
+                    <span class="pull-left">View Details</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+              </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-comments fa-5x"></i>
+                        <i class="fa  fa-chain-broken  fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">26</div>
-                        <div>New Comments!</div>
+                        <div class="huge"><%=@dashboard2%></div>
+                        <div>예상 만료 상품수</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="/admin/memberlist?table=table_expire">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -33,15 +55,15 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-tasks fa-5x"></i>
+                        <i class="fa fa-credit-card fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">12</div>
-                        <div>New Tasks!</div>
+                        <div class="huge"><%=@dashboard3%></div>
+                        <div>신규 상품 가입수</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
+            <a href="/admin/memberlist?table=table_newtran">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -55,37 +77,15 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-shopping-cart fa-5x"></i>
+                        <i class="fa fa-times fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge">124</div>
-                        <div>New Orders!</div>
+                        <div class="huge"><%=@dashboard4%></div>
+                        <div>최소 상품수</div>
                     </div>
                 </div>
             </div>
-            <a href="#">
-                <div class="panel-footer">
-                    <span class="pull-left">View Details</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-red">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-support fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">13</div>
-                        <div>Support Tickets!</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#">
+            <a href="/admin/memberlist?table=table_cancel">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
