@@ -36,7 +36,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.4)
-    autoprefixer-rails (7.2.2)
+    autoprefixer-rails (7.2.3)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
@@ -47,10 +47,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.1.0)
-<<<<<<< HEAD
-=======
     cancancan (2.1.2)
->>>>>>> feature/kwonb
     codemirror-rails (5.16.0)
       railties (>= 3.0, < 6.0)
     coffee-rails (4.1.1)
@@ -73,8 +70,8 @@ GEM
       devise (>= 3.4)
     erubis (2.7.0)
     execjs (2.7.0)
-    faker (1.8.4)
-      i18n (~> 0.5)
+    faker (1.8.5)
+      i18n (~> 0.9.1)
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)

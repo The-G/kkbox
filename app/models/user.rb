@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def admin?
-    if role == "admin"
+    # if user_signed_in?
       true
-    else
-      false
-    end
+    # else
+      # false
+    # end
   end
 
 end

@@ -18,3 +18,5 @@
 gitflow
 config/application.yml
 db/schema.rb
+db/migrate
+Gemfile.lock
