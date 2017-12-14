@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20171214062445) do
-=======
-ActiveRecord::Schema.define(version: 20171214085050) do
->>>>>>> feature/kwonb
+ActiveRecord::Schema.define(version: 20171214210938) do
 
   create_table "churns", force: :cascade do |t|
     t.string   "msno"
@@ -49,10 +45,6 @@ ActiveRecord::Schema.define(version: 20171214085050) do
     t.integer  "is_cancel"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-<<<<<<< HEAD
-=======
-    t.integer  "is_churn"
-    t.integer  "is_predictedChurn"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,8 +60,9 @@ ActiveRecord::Schema.define(version: 20171214085050) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "role"
->>>>>>> feature/kwonb
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

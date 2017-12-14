@@ -1,28 +1,22 @@
 class AdminController < ApplicationController
-<<<<<<< HEAD
-    #@@query1=Churn.where('date BETWEEN ? AND ?', '2017-03-01', '2017-03-31').where(predict:1)
-    #@@query1=Member.joins("INNER JOIN churns ON members.msno = churns.msno").where('date BETWEEN ? AND ?', '2017-03-01', '2017-03-31').where(predict:1)
-    @@query1=Member.find_by_sql "select * from Members, Churns where Members.msno=Churns.msno and Churns.predict=1 and Churns.date BETWEEN '2017-02-01' AND '2017-02-28'"
-    @@query1=Member.where(msno: @@query1.map(&:msno))
-    @@query2=Transaction.where('membership_expire_date BETWEEN ? AND ?', '2017-03-01', '2017-03-31')
-    @@query2=Member.where(msno: @@query2.map(&:msno))
-    @@query3=Transaction.where('transaction_date BETWEEN ? AND ?', '2017-02-01', '2017-02-28')
-    @@query3=Member.where(msno: @@query3.map(&:msno))
-    @@query4=Transaction.where('transaction_date BETWEEN ? AND ?', '2017-02-01', '2017-02-28').where(is_cancel:1)
-    @@query4=Member.where(msno: @@query4.map(&:msno))
-=======
-  before_filter :add_class
-   load_and_authorize_resource class: AdminController
+  before_filter :add_class, :authenticate_user!
+  load_and_authorize_resource class: AdminController
 
-   def add_class
-     params[:controller] = 'Admin'
-   end
+  #@@query1=Churn.where('date BETWEEN ? AND ?', '2017-03-01', '2017-03-31').where(predict:1)
+  #@@query1=Member.joins("INNER JOIN churns ON members.msno = churns.msno").where('date BETWEEN ? AND ?', '2017-03-01', '2017-03-31').where(predict:1)
+  @@query1=Member.find_by_sql "select * from Members, Churns where Members.msno=Churns.msno and Churns.predict=1 and Churns.date BETWEEN '2017-02-01' AND '2017-02-28'"
+  @@query1=Member.where(msno: @@query1.map(&:msno))
+  @@query2=Transaction.where('membership_expire_date BETWEEN ? AND ?', '2017-03-01', '2017-03-31')
+  @@query2=Member.where(msno: @@query2.map(&:msno))
+  @@query3=Transaction.where('transaction_date BETWEEN ? AND ?', '2017-02-01', '2017-02-28')
+  @@query3=Member.where(msno: @@query3.map(&:msno))
+  @@query4=Transaction.where('transaction_date BETWEEN ? AND ?', '2017-02-01', '2017-02-28').where(is_cancel:1)
+  @@query4=Member.where(msno: @@query4.map(&:msno))
 
-    @@query1=Member.where(gender:'f')
-    @@query2=Member.where(gender:'m')
-    @@query3=Member.where(city: 1)
-    @@query4=Member.where(city: 4, gender: 'm')
->>>>>>> feature/kwonb
+  def add_class
+    params[:controller] = 'Admin'
+  end
+
 
   def index
     @comments=Comment.all

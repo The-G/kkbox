@@ -1,21 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-<<<<<<< HEAD
-
-=======
   root 'admin#index'
->>>>>>> feature/kwonb
   get 'user/index'
-
   get 'admin/index'
   get 'admin/memberlist'
   get 'admin/modelInDetail'
-
-
-
-
-
-
   get 'page/tables'
   get 'page/forms'
   get 'page/panels_wells'
@@ -28,28 +17,20 @@ Rails.application.routes.draw do
   get 'page/login'
   get 'page/flot'
   get 'page/morris'
-
-
-
 #line_chart
   post 'admin/member_registration' => 'admin#member_registration'
   post 'admin/transaction_count' =>'admin#transaction_count'
   post 'admin/churn_expect_vs_actual' => 'admin#churn_expect_vs_actual'
-
   post 'admin/transaction_revenue' => 'admin#transaction_revenue'
   post 'admin/create_comment' => 'admin#create_comment'
-
-
   post 'admin/member_city' => 'admin#member_city'
   post 'admin/member_bd' => 'admin#member_bd'
   post 'admin/member_gender' => 'admin#member_gender'
   post 'admin/member_register_via' =>'admin#member_register_via'
-
   post 'admin/transaction_payment_method_id' => 'admin#transaction_payment_method_id'
   post 'admin/transaction_play_days' => 'admin#transaction_play_days'
   post 'admin/transaction_actual_amount_paid' => 'admin#transaction_actual_amount_paid'
   post 'admin/transaction_is_auto_renew' => 'admin#transaction_is_auto_renew'
-
   post 'admin/transaction_date' => 'admin#transaction_date'
   post 'admin/transaction_membership_expire_date' => 'admin#transaction_membership_expire_date'
 end
