@@ -39,4 +39,5 @@ Rails.application.routes.draw do
   post 'admin/transaction_new_transaction' => 'admin#transaction_new_transaction'
   post 'admin/transaction_this_month_expire_date' => 'admin#transaction_this_month_expire_date'
   post 'admin/transaction_is_cancel' => 'admin#transaction_is_cancel'
+
 end
