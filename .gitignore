@@ -19,3 +19,8 @@ gitflow
 config/application.yml
 db/schema.rb
 Gemfile.lock
+
+churn_dummy.csv
+mem_10000_utf.csv
+script_for_import_csv.txt
+tran_10000.csv
