@@ -165,7 +165,8 @@ private
   end
 
   def member_group(group)
-    members=Member.group(group).count
+    members=Member.group(group).count.sort{|a,b| b[1]<=>a[1]}.take(5).sort()
+
     count=[]
     members.each do |k, v|
        count.push({"y"=> k, "a"=>v})
