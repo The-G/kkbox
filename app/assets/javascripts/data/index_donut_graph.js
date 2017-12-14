@@ -18,7 +18,7 @@ function init_donut_graph(){
                 value: data[1].value
               }],
              resize: true,
-             colors: ["coral","deepskyblue","black","green","darkorange","yellow"]
+             colors: ["coral","lightskyblue","yellow","teal","mediumpurple","mediumblue"]
          });
       }
   })
@@ -38,19 +38,19 @@ function donut_ajax(url, label){
 };
 
 function make_input(label,data) {
-  result = [{
-        label: label[0],
-        value: data[0].value
-        }, {
-        label: label[1],
-        value: data[1].value
-        }];
+  result=[];
+  for(var i =0; i< label.length;i++){
+    result.push({
+          label: label[i],
+          value: data[i].value
+        });
+  }
   return result;
 }
 
 
 gender = ["Female", "Male"];
-auto_renewal = ["None Auto","Auto Renewal"];
+registration_via = ["1","2","3","4","5","6"];
 
 
 function reDraw_donut(){
@@ -61,8 +61,8 @@ function reDraw_donut(){
           setIntervalCount = 1;
           break;
       case 1:
-          donut_ajax("/admin/transaction_is_auto_renew", auto_renewal );
-          $('#donutChartTitle').text('AUTORENEW');
+          donut_ajax("/admin/member_register_via", registration_via );
+          $('#donutChartTitle').text('REGISTRAION WAY');
           setIntervalCount = 0;
           break;
   }
