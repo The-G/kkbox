@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212074425) do
+ActiveRecord::Schema.define(version: 20171213120234) do
 
   create_table "members", force: :cascade do |t|
     t.string   "msno"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20171212074425) do
     t.integer  "is_cancel"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "is_churn"
+    t.integer  "is_predictedChurn"
   end
 
 end

@@ -1,19 +1,19 @@
 <script>
-var donut;
-function init_donut_graph(){
+var donut_auto_renew;
+function init_donut_graph_auto_renew(){
   console.log("init_donut_graph called");
   $.ajax({
-      url : "/admin/member_gender",
+      url : "/admin/transaction_is_auto_renew",
       type : "post",
       success : function(data){
         console.log(data);
-        donut = Morris.Donut({
-            element: 'morris-donut-chart',
+        donut_auto_renew = Morris.Donut({
+            element: 'morris-donut-chart-renewal',
             data: [{
-                label: "Female",
+                label: "None Auto",
                 value: data[0].a
               }, {
-                label: "Male",
+                label: "Auto Renewal",
                 value: data[1].a
               }],
             resize: true
@@ -23,7 +23,7 @@ function init_donut_graph(){
 };
 
 $(function() {
-  init_donut_graph();
+  init_donut_graph_auto_renew();
 });
 
 </script>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'tzinfo-data'
 
 gem 'awesome_print'
 gem 'faker'

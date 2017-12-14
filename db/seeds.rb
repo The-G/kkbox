@@ -25,9 +25,11 @@ end
   plan_list_price: rand(1..5)*1000,
   actual_amount_paid: rand(1..5)*1000,
   is_auto_renew: rand(0..1),
-  transaction_date:  Faker::Date.birthday(1, 10).month,
-  membership_expire_date:  Faker::Date.birthday(1, 5).month,
-  is_cancel: rand(0..1)
+  transaction_date:  Faker::Time.backward(720).strftime("%Y-%m-%d"),
+  membership_expire_date: Faker::Time.backward(720).strftime("%Y-%m-%d"),
+  is_cancel: rand(0..1),
+  is_churn: rand(0..1),
+  is_predictedChurn: rand(0..1)
 )
 end
 

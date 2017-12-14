@@ -1,8 +1,27 @@
 <script>
   var line
+  // function init_line_graph(){
+  //   $.ajax({
+  //     url : "/admin/transaction_date",
+  //     type : "post",
+  //     success : function(data) {
+  //       line =
+  //         Morris.Line({
+  //           element: 'morris-line-chart',
+  //           data: data,
+  //           xkey: 'date',
+  //           ykeys: ['number','number2'],
+  //           labels: ['number', 'number2'],
+  //           pointSize: 2,
+  //           hideHover: 'auto',
+  //           resize: true
+  //         });
+  //     }
+  //   })
+  // }
   function init_line_graph(){
     $.ajax({
-      url : "/admin/transaction_date",
+      url : "/admin/transaction_is_churn",
       type : "post",
       success : function(data) {
         line =

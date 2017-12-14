@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post 'admin/member_city' => 'admin#member_city'
   post 'admin/member_bd' => 'admin#member_bd'
   post 'admin/member_gender' => 'admin#member_gender'
-  
+
   post 'admin/transaction_payment_method_id' => 'admin#transaction_payment_method_id'
   post 'admin/transaction_play_days' => 'admin#transaction_play_days'
   post 'admin/transaction_actual_amount_paid' => 'admin#transaction_actual_amount_paid'
@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   post 'admin/transaction_date' => 'admin#transaction_date'
   post 'admin/transaction_membership_expire_date' => 'admin#transaction_membership_expire_date'
+
+  post 'admin/transaction_is_churn' => 'admin#transaction_is_churn'
 end
