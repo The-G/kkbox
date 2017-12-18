@@ -18,7 +18,7 @@ function init_donut_graph(){
                 value: data[1].value
               }],
              resize: true,
-             colors: ["coral","lightskyblue","yellow","teal","mediumpurple","mediumblue"]
+             colors: ["coral","deepskyblue","black","green","darkorange","yellow"]
          });
       }
   })
@@ -31,7 +31,6 @@ function donut_ajax(url, label){
       url : url,
       type : "post",
       success : function(data){
-        console.log(data);
         data=make_input(label, data);
         donut.setData(data);
       }
@@ -39,21 +38,19 @@ function donut_ajax(url, label){
 };
 
 function make_input(label,data) {
-  result=[];
-  console.log(data);
-  for(var i =0; i< label.length;i++){
-
-    result.push({
-          label: label[i],
-          value: data[i].value
-        });
-  }
+  result = [{
+        label: label[0],
+        value: data[0].value
+        }, {
+        label: label[1],
+        value: data[1].value
+        }];
   return result;
 }
 
 
-gender = ["여자", "남자"];
-registration_via = ["웹","광고","기업고객","지인추천","모바일"];
+gender = ["Female", "Male"];
+auto_renewal = ["None Auto","Auto Renewal"];
 
 
 function reDraw_donut(){
@@ -64,8 +61,8 @@ function reDraw_donut(){
           setIntervalCount = 1;
           break;
       case 1:
-          donut_ajax("/admin/member_register_via", registration_via );
-          $('#donutChartTitle').text('REGISTRAION WAY');
+          donut_ajax("/admin/transaction_is_auto_renew", auto_renewal );
+          $('#donutChartTitle').text('AUTORENEW');
           setIntervalCount = 0;
           break;
   }

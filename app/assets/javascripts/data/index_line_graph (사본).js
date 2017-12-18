@@ -4,7 +4,6 @@
       url : "/admin/churn_expect_vs_actual",
       type : "post",
       success : function(data) {
-        $('#lineChartTitle').text("Churn_Expect vs Actual");
         line =
           Morris.Line({
             element: 'morris-line-chart',
@@ -21,14 +20,14 @@
     })
   }
 
-function line_ajax(url,title){
+function line_ajax(url){
   console.log("line_ajax called");
   $.ajax({
         url : url,
         type : "post",
         success : function(data) {
           console.log(data);
-          $('#lineChartTitle').text(title);
+          $('#lineChartTitle').text(url);
           line.setData(data);
         }
   });
@@ -37,18 +36,18 @@ function line_ajax(url,title){
 $(function() {
   init_line_graph();
   $('#line1').click(function() {
-      line_ajax("/admin/churn_expect_vs_actual","Churn_Expect vs Actual");
+      line_ajax("/admin/churn_expect_vs_actual");
   });
   $('#line2').click(function() {
-      line_ajax("/admin/member_registration","REGISTRATION COUNT");
+      line_ajax("/admin/member_registration");
   });
 
   $('#line3').click(function() {
-      line_ajax("/admin/transaction_count","PRODUCT COUNT");
+      line_ajax("/admin/transaction_count");
   });
 
   $('#line4').click(function() {
-      line_ajax("/admin/transaction_revenue","SALES TREND");
+      line_ajax("/admin/transaction_revenue");
   });
 
 
